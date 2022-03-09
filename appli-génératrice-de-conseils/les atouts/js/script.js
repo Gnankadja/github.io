@@ -3,7 +3,7 @@ function ajax_request(link, method, data, success = null, failed = null) {
     // Creating a new "xml http request" and Opens the xhr with the passed parameters.
     let xhr = new XMLHttpRequest(); xhr.open(method, link, true);
     // Changes the default header.
-//     xhr.setRequestHeader("Content-type", "application/json;charset=UTF-8");
+    // xhr.setRequestHeader("Content-type", "application/json;charset=UTF-8");
     // Sends the passed data.
     xhr.send(JSON.stringify(data)); xhr.onload = () => {
         // A 200 status has been returned.
@@ -42,4 +42,12 @@ function displayAdvice() {
 
 }
 
-displayAdvice();
+// After all DOM is loaded, display first advice
+document.addEventListener('DOMContentLoaded', ()=>{
+    displayAdvice();
+})
+
+// Listen click on icon-dice
+document.getElementById('icon-dice').addEventListener('click', ()=>{
+    displayAdvice();
+})
