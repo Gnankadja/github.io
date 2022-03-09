@@ -18,7 +18,7 @@ function getAdvice() {
     // Use Promise
     return new Promise((resolve, reject) => {
         // Ajax request
-        ajax_request('https://api.adviceslip.com/advice', "POST", 
+        ajax_request('https://api.adviceslip.com/advice', "GET", 
         new Object({}), 
         success => resolve(success.slip),
         fail => {reject("Error to get advice. Please retry")});
